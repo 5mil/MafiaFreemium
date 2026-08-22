@@ -29,6 +29,9 @@ Local multiplayer narrator app for social deduction party game, enhanced with fr
 ## Microtransactions Catalog
 See docs/MICROTRANSACTIONS.md
 
+## Billing Setup
+See docs/BILLING_SETUP.md
+
 ## Game Mechanics
 Same classic Mafia:
 - Secret role assignment
@@ -46,5 +49,6 @@ This is a **from-scratch original implementation**. We do **not** copy GPL-3.0 c
 - Full freemium economy (Diamonds, Hits, Shop, Made Man) — done & self-tested
 - Completely **ad-free** (pure microtransactions only)
 - Jetpack Compose UI screens (Home, Black Market, Setup, Role Reveal, Night/Day) — done
+- Google Play Billing integration (BillingManager + Mock) — done
 - GitHub: https://github.com/5mil/MafiaFreemium
-- Next: Google Play Billing integration + navigation host
+- Next: Navigation host + ViewModel wiring, then persistence
