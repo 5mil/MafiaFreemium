@@ -2,9 +2,11 @@ package com.mafiagame.freemium.model
 
 /**
  * Core freemium economy models — fully Mafia-themed.
- * Soft currency = Cash (earned on the street)
+ * Soft currency = Cash (earned by finishing jobs)
  * Hard currency = Diamonds (bought with real money)
  * Energy = Hits (how many jobs/games you can run today)
+ *
+ * Completely ad-free. Monetization is pure microtransactions only.
  */
 
 data class PlayerWallet(
@@ -14,7 +16,6 @@ data class PlayerWallet(
     var maxEnergy: Int = 5,              // free crews
     var lastEnergyRefresh: Long = 0L,    // epoch millis for daily reset
     var isVip: Boolean = false,          // Made Man status
-    var adsRemoved: Boolean = false,     // Silence the Snitches
     var unlockedRoles: MutableSet<RoleId> = mutableSetOf(
         RoleId.VILLAGER, RoleId.MAFIA, RoleId.DOCTOR, RoleId.DETECTIVE
     )
@@ -26,7 +27,6 @@ enum class ProductType {
     ROLE_UNLOCK,
     ROLE_PACK,
     COSMETIC,
-    REMOVE_ADS,
     VIP_SUBSCRIPTION,
     BATTLE_PASS,
     STARTER_PACK
@@ -56,7 +56,7 @@ object ShopCatalog {
         ShopProduct("gems_6500", "8000 Diamonds", "Godfather’s reserve (+23%)", ProductType.GEM_PACK, "$49.99", gemsGranted = 8000),
         ShopProduct("gems_14000", "18000 Diamonds", "Empire treasury (+28%)", ProductType.GEM_PACK, "$99.99", gemsGranted = 18000),
 
-        // Hits (Energy)
+        // Hits (Energy) — main time-gate reduction
         ShopProduct("energy_5", "5 Hits", "Quick reload for the crew", ProductType.ENERGY_PACK, "50 Diamonds", energyGranted = 5),
         ShopProduct("energy_20", "20 Hits", "Full crew restock", ProductType.ENERGY_PACK, "150 Diamonds", energyGranted = 20),
         ShopProduct("energy_50", "50 Hits", "Arsenal ready", ProductType.ENERGY_PACK, "300 Diamonds", energyGranted = 50),
@@ -76,11 +76,10 @@ object ShopCatalog {
 
         // Packs & status
         ShopProduct("roles_all_premium", "Full Family Roster", "Unlock every special role at once", ProductType.ROLE_PACK, "$7.99 / 800 Diamonds", isConsumable = false),
-        ShopProduct("remove_ads", "Silence the Snitches", "No more interstitial ads — forever", ProductType.REMOVE_ADS, "$2.99 / 300 Diamonds", isConsumable = false),
         ShopProduct("starter_pack", "Rookie Hitman Pack", "500 Diamonds + 20 Hits + 1 random premium role", ProductType.STARTER_PACK, "$1.99", gemsGranted = 500, energyGranted = 20, isConsumable = false),
 
         // Subscriptions
-        ShopProduct("vip_monthly", "Made Man Monthly", "No ads • +2 daily Hits • exclusive roles • 100 Diamonds/month", ProductType.VIP_SUBSCRIPTION, "$4.99/mo", isSubscription = true, isConsumable = false),
+        ShopProduct("vip_monthly", "Made Man Monthly", "+2 daily Hits • exclusive roles • exclusive cosmetics • 100 Diamonds/month", ProductType.VIP_SUBSCRIPTION, "$4.99/mo", isSubscription = true, isConsumable = false),
         ShopProduct("vip_yearly", "Made Man Yearly", "Same as monthly + 2 months free + exclusive Don badge", ProductType.VIP_SUBSCRIPTION, "$39.99/yr", isSubscription = true, isConsumable = false),
         ShopProduct("battle_pass", "Family Legacy Pass", "Season-long exclusive rewards for the family", ProductType.BATTLE_PASS, "$9.99", isConsumable = false)
     )
