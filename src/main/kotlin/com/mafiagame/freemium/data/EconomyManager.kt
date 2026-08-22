@@ -4,15 +4,17 @@ import com.mafiagame.freemium.model.*
 
 /**
  * Handles all freemium economy logic.
+ * Completely ad-free. Monetization is pure microtransactions only
+ * (Diamonds, Hits, roles, Made Man status, etc.).
+ *
  * In a real app this would be backed by DataStore / Room + Google Play Billing.
- * Here we keep an in-memory version that can be unit-tested.
  */
 class EconomyManager(
     private val wallet: PlayerWallet = PlayerWallet()
 ) {
     fun getWallet(): PlayerWallet = wallet
 
-    // --- Energy ---
+    // --- Hits (Energy) ---
 
     fun canStartGame(): Boolean {
         refreshEnergyIfNeeded()
@@ -28,7 +30,6 @@ class EconomyManager(
     }
 
     fun refreshEnergyIfNeeded(now: Long = System.currentTimeMillis()) {
-        // Simple daily reset (real app would use more precise logic or server time)
         val oneDayMs = 24 * 60 * 60 * 1000L
         if (now - wallet.lastEnergyRefresh > oneDayMs) {
             wallet.energy = wallet.maxEnergy
@@ -85,12 +86,7 @@ class EconomyManager(
                 addGems(product.gemsGranted)
             }
             ProductType.ENERGY_PACK -> {
-                if (product.id == "energy_unlimited_24h") {
-                    // Real app would set a timestamp; here we just give a large amount
-                    addEnergy(product.energyGranted)
-                } else {
-                    addEnergy(product.energyGranted)
-                }
+                addEnergy(product.energyGranted)
             }
             ProductType.ROLE_UNLOCK -> {
                 product.roleUnlocked?.let { unlockRole(it) }
@@ -98,19 +94,14 @@ class EconomyManager(
             ProductType.ROLE_PACK -> {
                 if (product.id == "roles_all_premium") unlockAllPremiumRoles()
             }
-            ProductType.REMOVE_ADS -> {
-                wallet.adsRemoved = true
-            }
             ProductType.VIP_SUBSCRIPTION -> {
                 wallet.isVip = true
-                wallet.adsRemoved = true
                 wallet.maxEnergy = 7
                 addGems(100) // monthly grant example
             }
             ProductType.STARTER_PACK -> {
                 addGems(product.gemsGranted)
                 addEnergy(product.energyGranted)
-                // Give one random premium role
                 val premium = RoleCatalog.premiumRoles.random()
                 unlockRole(premium.id)
             }
@@ -124,12 +115,10 @@ class EconomyManager(
         return true
     }
 
-    // --- Soft currency purchases (spend gems/coins inside the app) ---
+    // --- Soft currency purchases (spend Diamonds inside the app) ---
 
     fun buyWithGems(productId: String): Boolean {
-        val product = ShopCatalog.getById(productId) ?: return false
-        // Only products that cost gems (not real-money IAPs)
-        val gemCost = when (product.id) {
+        val gemCost = when (productId) {
             "energy_5" -> 50
             "energy_20" -> 150
             "energy_50" -> 300
@@ -145,7 +134,6 @@ class EconomyManager(
             "role_fool" -> 130
             "role_arsonist" -> 250
             "roles_all_premium" -> 800
-            "remove_ads" -> 300
             else -> return false
         }
         if (!spendGems(gemCost)) return false
