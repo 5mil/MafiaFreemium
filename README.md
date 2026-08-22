@@ -43,5 +43,8 @@ Premium roles add complexity and fun (buy to unlock).
 ## License Note
 This is a **from-scratch original implementation**. We do **not** copy GPL-3.0 code from the original repo. Inspired only by the game concept and UI flow.
 
-## Status
-In development. Core logic implemented and self-tested. GitHub repo created. Next: UI + Billing + Energy system.
+## Current Status (2026-08-22)
+- Core game engine (roles, night/day, voting) — done
+- Full freemium economy (Energy, Gems, Coins, ShopCatalog, EconomyManager) — done & self-tested
+- GitHub repo live: https://github.com/5mil/MafiaFreemium
+- Next up: Jetpack Compose UI screens + Google Play Billing integration
