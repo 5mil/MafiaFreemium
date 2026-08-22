@@ -3,7 +3,7 @@
 **Our own freemium version inspired by classic Mafia/Werewolf party game** (original open-source: https://github.com/IamRezaMousavi/Mafia)
 
 ## Concept
-Local multiplayer narrator app for social deduction party game, enhanced with freemium monetization via lots of microtransactions.
+Local multiplayer narrator app for social deduction party game, enhanced with freemium monetization via pure microtransactions (no ads).
 
 **Core free-to-play**:
 - Basic roles: Villager, Mafia, Doctor, Detective
@@ -11,24 +11,22 @@ Local multiplayer narrator app for social deduction party game, enhanced with fr
 - Multi-language support (EN, FA, ES, more)
 - Offline play with one device as narrator
 
-**Freemium monetization**:
-- Soft currency (Coins) earned by playing
-- Hard currency (Gems) bought with real money
-- Energy system limiting free games per day
+**Freemium monetization (ad-free)**:
+- Soft currency (Cash) earned by playing
+- Hard currency (Diamonds) bought with real money
+- Hits system (energy) limiting free games per day
 - Unlockable premium roles, cosmetics, themes, voice packs
-- Remove ads, VIP subscription, battle pass
-- Many individual microtransactions
+- Made Man subscription, Family Legacy Pass
+- Pure microtransactions only — more content + reduce time
 
 ## Tech Stack (proposed)
 - Kotlin + Jetpack Compose (modern UI)
 - Clean Architecture + MVVM
 - Google Play Billing Library v7+ for IAPs
 - Room / DataStore for local persistence
-- Optional: Firebase for online rooms / leaderboards (future)
-- AdMob for free-tier ads
-- Material 3 Design
+- Material 3 Design with underworld theme
 
-## Microtransactions Catalog (lots!)
+## Microtransactions Catalog
 See docs/MICROTRANSACTIONS.md
 
 ## Game Mechanics
@@ -43,8 +41,10 @@ Premium roles add complexity and fun (buy to unlock).
 ## License Note
 This is a **from-scratch original implementation**. We do **not** copy GPL-3.0 code from the original repo. Inspired only by the game concept and UI flow.
 
-## Current Status (2026-08-22)
+## Status (2026-08-22)
 - Core game engine (roles, night/day, voting) — done
-- Full freemium economy (Energy, Gems, Coins, ShopCatalog, EconomyManager) — done & self-tested
-- GitHub repo live: https://github.com/5mil/MafiaFreemium
-- Next up: Jetpack Compose UI screens + Google Play Billing integration
+- Full freemium economy (Diamonds, Hits, Shop, Made Man) — done & self-tested
+- Completely **ad-free** (pure microtransactions only)
+- Jetpack Compose UI screens (Home, Black Market, Setup, Role Reveal, Night/Day) — done
+- GitHub: https://github.com/5mil/MafiaFreemium
+- Next: Google Play Billing integration + navigation host
