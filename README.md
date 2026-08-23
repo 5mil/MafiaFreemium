@@ -8,49 +8,24 @@ Local multiplayer narrator app for social deduction party game, enhanced with fr
 **Core free-to-play**:
 - Basic roles: Villager, Mafia, Doctor, Detective
 - Standard night/day phases, voting, role assignment
-- Multi-language support (EN, FA, ES, more)
 - Offline play with one device as narrator
 
 **Freemium monetization (ad-free)**:
-- Soft currency (Cash) earned by playing
-- Hard currency (Diamonds) bought with real money
-- Hits system (energy) limiting free games per day
-- Unlockable premium roles, cosmetics, themes, voice packs
-- Made Man subscription, Family Legacy Pass
+- Cash (soft) + Diamonds (hard)
+- Hits system limiting free games
+- Premium roles, Made Man subscription, Family Legacy Pass
 - Pure microtransactions only — more content + reduce time
 
-## Tech Stack (proposed)
-- Kotlin + Jetpack Compose (modern UI)
-- Clean Architecture + MVVM
-- Google Play Billing Library v7+ for IAPs
-- Room / DataStore for local persistence
-- Material 3 Design with underworld theme
-
-## Microtransactions Catalog
-See docs/MICROTRANSACTIONS.md
-
-## Billing Setup
-See docs/BILLING_SETUP.md
-
-## Game Mechanics
-Same classic Mafia:
-- Secret role assignment
-- Night phase (kills, protect, investigate)
-- Day phase (discussion + vote)
-- Win conditions for Village / Mafia / Independents
-
-Premium roles add complexity and fun (buy to unlock).
-
-## License Note
-This is a **from-scratch original implementation**. We do **not** copy GPL-3.0 code from the original repo. Inspired only by the game concept and UI flow.
-
 ## Status (2026-08-22)
-- Core game engine (roles, night/day, voting) — done
-- Full freemium economy (Diamonds, Hits, Shop, Made Man) — done & self-tested
-- Completely **ad-free** (pure microtransactions only)
-- Jetpack Compose UI screens (Home, Black Market, Setup, Role Reveal, Night/Day) — done
-- Google Play Billing integration (BillingManager + Mock) — done
-- Navigation + MafiaViewModel + MafiaApp host — done
-- Persistence (DataStore WalletRepository) — done
+- Core game engine — done
+- Ad-free microtransactions + economy — done
+- Compose UI (Home, Shop, Setup, Role Reveal, Night, Day, Settings) — done
+- Google Play Billing + Mock — done
+- Navigation + ViewModel — done
+- DataStore persistence — done
+- Full night/day action UI (target select + voting) — done
+- MainActivity entry point — done
 - GitHub: https://github.com/5mil/MafiaFreemium
-- Next: Polish (full night/day action UI, settings, real Android project skeleton)
+
+## License
+Original implementation. Inspired by classic Mafia gameplay only (not a copy of GPL code).
