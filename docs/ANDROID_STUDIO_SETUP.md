@@ -12,21 +12,19 @@
 4. Install any missing SDK / build-tools if prompted
 5. Run on emulator (API 26+) or a real device
 
-## Layout
-```
-MafiaFreemium/
-├── settings.gradle.kts
-├── build.gradle.kts
-├── gradle.properties
-├── app/
-│   ├── build.gradle.kts
-│   └── src/main/ (Manifest + res)
-└── src/main/kotlin/  (all app code)
-```
+## Gradle Wrapper
+Android Studio generates the wrapper on first open if needed.
+Or with Gradle installed:
 
-The app module points Kotlin sources at `../src/main/kotlin`.
+```bash
+cd MafiaFreemium
+gradle wrapper --gradle-version 8.9
+./gradlew assembleDebug
+```
 
 ## Notes
-- Ad-free, pure microtransactions
-- Mock billing is on by default (`useMockBilling = true` in MainActivity)
-- See `docs/BILLING_SETUP.md` for Play Console product IDs
+- Completely **ad-free**
+- Mock billing is enabled by default in `MainActivity` (`useMockBilling = true`)
+- Switch to real `BillingManager` when you have Play Console products set up
+- DataStore persists Diamonds, Hits, roles, and Made Man status
+- Before publishing: see `docs/STORE_LAUNCH_CHECKLIST.md`
