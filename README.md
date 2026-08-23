@@ -51,5 +51,6 @@ This is a **from-scratch original implementation**. We do **not** copy GPL-3.0 c
 - Jetpack Compose UI screens (Home, Black Market, Setup, Role Reveal, Night/Day) — done
 - Google Play Billing integration (BillingManager + Mock) — done
 - Navigation + MafiaViewModel + MafiaApp host — done
+- Persistence (DataStore WalletRepository) — done
 - GitHub: https://github.com/5mil/MafiaFreemium
-- Next: Persistence (DataStore) for wallet / unlocks
+- Next: Polish (full night/day action UI, settings, real Android project skeleton)
