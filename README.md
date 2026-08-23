@@ -18,19 +18,22 @@ Offline party-game narrator with pure microtransactions (**no ads**).
 ## Open in Android Studio
 See **docs/ANDROID_STUDIO_SETUP.md**
 
-1. Clone https://github.com/5mil/MafiaFreemium
-2. Open the folder in Android Studio
+1. Clone https://github.com/5mil/MafiaFreemium  
+2. Open the folder in Android Studio  
 3. Gradle sync → Run (API 26+)
 
 ## Docs
-- `docs/MICROTRANSACTIONS.md` — shop catalog
-- `docs/BILLING_SETUP.md` — Play product IDs
-- `docs/ANDROID_STUDIO_SETUP.md` — build instructions
+- `docs/MICROTRANSACTIONS.md` — shop catalog  
+- `docs/BILLING_SETUP.md` — Play product IDs  
+- `docs/ANDROID_STUDIO_SETUP.md` — how to build  
+- `docs/STORE_LAUNCH_CHECKLIST.md` — publish checklist  
 
 ## Status
-- Core engine, economy, UI, billing, navigation, DataStore — done
-- Night/day action UI + Settings + MainActivity — done
-- Android Gradle project skeleton — done
+- Core engine, economy, UI, billing, navigation, DataStore — done  
+- Night/day actions, Settings, MainActivity — done  
+- Android Gradle project skeleton — done  
+- Store launch checklist — done  
+- GitHub: https://github.com/5mil/MafiaFreemium  
 
 ## License
 Original implementation. Inspired by classic Mafia gameplay only.
