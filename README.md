@@ -1,31 +1,36 @@
 # Mafia Freemium - Party Game Android App
 
-**Our own freemium version inspired by classic Mafia/Werewolf party game** (original open-source: https://github.com/IamRezaMousavi/Mafia)
+**Our own freemium version inspired by classic Mafia/Werewolf party game**  
+(inspired by: https://github.com/IamRezaMousavi/Mafia — original implementation, not a copy)
 
 ## Concept
-Local multiplayer narrator app for social deduction party game, enhanced with freemium monetization via pure microtransactions (no ads).
+Offline party-game narrator with pure microtransactions (**no ads**).
 
-**Core free-to-play**:
-- Basic roles: Villager, Mafia, Doctor, Detective
-- Standard night/day phases, voting, role assignment
-- Offline play with one device as narrator
+- Free core: Villager, Mafia, Doctor, Detective, night/day, voting
+- Pay for more: Diamonds, Hits (energy), premium roles, Made Man status
 
-**Freemium monetization (ad-free)**:
-- Cash (soft) + Diamonds (hard)
-- Hits system limiting free games
-- Premium roles, Made Man subscription, Family Legacy Pass
-- Pure microtransactions only — more content + reduce time
+## Tech
+- Kotlin + Jetpack Compose + Material 3
+- MVVM (`MafiaViewModel`)
+- Google Play Billing
+- DataStore persistence
 
-## Status (2026-08-22)
-- Core game engine — done
-- Ad-free microtransactions + economy — done
-- Compose UI (Home, Shop, Setup, Role Reveal, Night, Day, Settings) — done
-- Google Play Billing + Mock — done
-- Navigation + ViewModel — done
-- DataStore persistence — done
-- Full night/day action UI (target select + voting) — done
-- MainActivity entry point — done
-- GitHub: https://github.com/5mil/MafiaFreemium
+## Open in Android Studio
+See **docs/ANDROID_STUDIO_SETUP.md**
+
+1. Clone https://github.com/5mil/MafiaFreemium
+2. Open the folder in Android Studio
+3. Gradle sync → Run (API 26+)
+
+## Docs
+- `docs/MICROTRANSACTIONS.md` — shop catalog
+- `docs/BILLING_SETUP.md` — Play product IDs
+- `docs/ANDROID_STUDIO_SETUP.md` — build instructions
+
+## Status
+- Core engine, economy, UI, billing, navigation, DataStore — done
+- Night/day action UI + Settings + MainActivity — done
+- Android Gradle project skeleton — done
 
 ## License
-Original implementation. Inspired by classic Mafia gameplay only (not a copy of GPL code).
+Original implementation. Inspired by classic Mafia gameplay only.
